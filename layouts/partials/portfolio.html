@@ -1,0 +1,53 @@
+<!-- ==== PORTFOLIO ==== -->
+<div class="container" id="portfolio" name="portfolio">
+	<br>
+  <div class="row">
+  	<br>
+  	<h1 class="centered">{{ .heading }}</h1>
+  	<hr>
+  	<br>
+  	<br>
+  </div><!-- /row -->
+  <div class="container">
+  	<div class="row">
+  	{{ range .items }}
+  <!-- PORTFOLIO IMAGE 1 -->
+  		<div class="col-md-4 ">
+  			<div class="grid mask">
+  				<figure>
+  					<img class="img-responsive" src="img/{{ .Params.img }}" alt="">
+  					<figcaption>
+  						<h5>{{ .Title }}</h5>
+  						<a data-toggle="modal" href="#portfolioModal{{ .UniqueID }}" class="btn btn-primary btn-lg">Take a Look</a>
+  					</figcaption><!-- /figcaption -->
+  				</figure><!-- /figure -->
+  			</div><!-- /grid-mask -->
+  		</div><!-- /col -->
+
+
+  		 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
+  					a modal for each of your projects. -->
+
+  		<div class="modal fade" id="portfolioModal{{ .UniqueID }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  			<div class="modal-dialog">
+  				<div class="modal-content">
+  					<div class="modal-header">
+  						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  						<h4 class="modal-title">{{ .Title }}</h4>
+  					</div>
+  					<div class="modal-body">
+  						<p><img class="img-responsive" src="img/{{ .Params.img }}" alt=""></p>
+  						{{ .Content }}
+  					</div>
+  					<div class="modal-footer">
+  						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  					</div>
+  				</div><!-- /.modal-content -->
+  			</div><!-- /.modal-dialog -->
+  		</div><!-- /.modal -->
+  	{{ end }}
+  		<br>
+  		<br>
+  	</div><!-- /row -->
+  </div><!-- /container -->
+</div>

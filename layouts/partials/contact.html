@@ -1,0 +1,45 @@
+	{{ $width := 4 }}
+		<div class="container" id="contact" name="contact">
+			<div class="row">
+			<br>
+				<h1 class="centered">{{ .heading }}</h1>
+				<hr>
+				<br>
+				<br>
+				<div class="col-lg-{{ $width }}">
+					<h3>Contact Information</h3>
+					<p>
+						{{ range .contacts }}
+							{{ if eq .type "address" }}
+								<span class="icon icon-home"></span> {{ .value }}<br/>
+							{{ else if eq .type "phone" }}
+								<span class="icon icon-phone"></span> {{ .value }} <br/>
+							{{ else if eq .type "mobile" }}
+								<span class="icon icon-mobile"></span> {{ .value }} <br/>
+							{{ else if eq .type "email" }}
+								<span class="icon icon-envelop"></span> <a href="mailto:{{ .value }}"> {{ .value }}</a> <br/>
+							{{ else if eq .type "twitter" }}
+								<span class="icon icon-twitter"></span> <a href="https://twitter.com/{{ .value }}"> @{{ .value }} </a> <br/>
+							{{ else if eq .type "facebook" }}
+								<span class="icon icon-facebook"></span> <a href="https://www.facebook.com/{{ .value }}"> {{ .name | default .value }} </a> <br/>
+							{{ end }}
+						{{ end }}
+					</p>
+				</div><!-- col -->
+
+				{{ if .newsletter }}
+				<div class="col-lg-{{ $width }}">
+					{{ partial "contact/newsletter.html" . }}
+				</div><!-- col -->
+				{{ end }}
+
+				{{ with .support_us }}
+				<div class="col-lg-{{ $width }}">
+					<h3>Support Us</h3>
+					<p>{{ . }}</p>
+				</div><!-- col -->
+				{{ end }}
+
+			</div><!-- row -->
+
+		</div><!-- container -->

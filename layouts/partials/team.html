@@ -1,0 +1,32 @@
+		<!-- ==== TEAM MEMBERS ==== -->
+		<div class="container" id="team" name="team">
+		<br>
+			<div class="row white centered">
+				<h1 class="centered">MEET OUR AWESOME TEAM</h1>
+				<hr>
+				<br>
+				<br>
+
+				{{ range . }}
+				<div class="col-lg-3 centered">
+					{{ with .img }}
+					<img class="img img-circle" src="img/{{ . }}" height="120px" width="120px" alt="">
+					<br>
+					{{ end }}
+					<h4><b>{{ .name }}</b></h4>
+					{{ with .twitter }}
+						<a href="https://twitter.com/{{ . }}" class="icon icon-twitter"></a>
+					{{ end }}
+					{{ with .facebook }}
+						<a href="https://www.facebook.com/{{ . }}" class="icon icon-facebook"></a>
+					{{ end }}
+					{{ with .flickr }}
+					<a href="https://www.flickr.com/photos/{{ . }}" class="icon icon-flickr"></a>
+					{{ end }}
+					{{ with .intro }}
+					<p>{{ . }}</p>
+					{{ end }}
+				</div><!-- col-lg-3 -->
+				{{ end }}
+			</div><!-- row -->
+		</div><!-- container -->

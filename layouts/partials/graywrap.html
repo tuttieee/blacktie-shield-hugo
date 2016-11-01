@@ -1,0 +1,16 @@
+  {{ with .Site.Data.graywrap }}
+		<!-- ==== GREYWRAP ==== -->
+		<div id="greywrap">
+			<div class="row">
+
+        {{ $wrap_length := len . }}
+        {{ range . }}
+				<div class="col-lg-{{ div 12 $wrap_length }} callout">
+					<span class="icon icon-{{ .fa_icon }}"></span>
+					<h2>{{ .title }}</h2>
+					<p>{{ .text }}</p>
+				</div><!-- col-lg-4 -->
+        {{ end }}
+			</div><!-- row -->
+		</div><!-- greywrap -->
+  {{ end }}

@@ -1,0 +1,36 @@
+		<!-- ==== BLOG ==== -->
+		<div class="container" id="blog" name="blog">
+			<br>
+			<div class="row">
+				<br>
+				<h1 class="centered">{{ .heading }}</h1>
+				<hr>
+				<br>
+				<br>
+			</div><!-- /row -->
+
+			<div class="row">
+        {{ range first 2 .items }}
+				<div class="col-lg-6 blog-bg">
+					<div class="col-lg-4 centered">
+					<br>
+						{{ with .Params.authorimg}}
+							<p><img class="img img-circle" src="img/{{ . }}" width="60px" height="60px"></p>
+						{{ end }}
+						<h4>{{ .Params.author }}</h4>
+						<h5>Published {{ dateFormat "Jan 2, 2006" .PublishDate }}.</h5>
+					</div>
+					<div class="col-lg-8 blog-content">
+						<h2>{{ .Title }}</h2>
+            {{ .Summary }}
+            {{ if .Truncated }}
+						<p><a href="{{ .RelPermalink }}" class="icon icon-link"> Read More</a></p>
+            {{ end }}
+						<br>
+					</div>
+				</div><!-- /col -->
+        {{ end }}
+			</div><!-- /row -->
+			<br>
+			<br>
+		</div><!-- /container -->

@@ -1,0 +1,15 @@
+
+		<!-- ==== SECTION DIVIDER -->
+		<section class="section-divider textdivider"
+      style="background-image: url('img/{{ with .img }}{{ . }}{{ else }}bg/divider1.jpg{{ end }}')"
+    >
+			<div class="container">
+				{{ with .title }}
+				<h1>{{ . }}</h1>
+				<hr>
+        {{ end }}
+        {{ with .text }}
+				<p>{{ . }}</p>
+        {{ end }}
+			</div><!-- container -->
+		</section><!-- section -->

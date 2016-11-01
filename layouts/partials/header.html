@@ -1,0 +1,10 @@
+		<!-- ==== HEADERWRAP ==== -->
+	    <div id="headerwrap" id="home" name="home">
+			<header class="clearfix">
+	  		 		<h1><span class="icon icon-{{ with .icon }}{{ . }}{{ else }}shield{{ end }}"></span></h1>
+						{{ with .heading}}<p>{{ . }}</p>{{ end }}
+						{{ range .headings }}
+						<p>{{ . }}</p>
+						{{ end }}
+	  		</header>
+	    </div><!-- /headerwrap -->

@@ -1,0 +1,24 @@
+heading = "THANKS FOR VISITING US"
+nav = "Contact"
+newsletter = true
+support_us = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+
+[[contacts]]
+    type = "address"
+    value = "Some Address 987, NY"
+[[contacts]]
+    type = "phone"
+    value = "+34 9884 4893"
+[[contacts]]
+    type = "mobile"
+    value= "+34 59855 9853"
+[[contacts]]
+    type = "email"
+    value= "agency@blacktie.co"
+[[contacts]]
+	type = "twitter"
+    value= "blacktie_co"
+[[contacts]]
+	type = "facebook"
+    value = "BlackTie Agency"
+    name = "BlackTie Agency"

@@ -1,0 +1,135 @@
+{{ $header := .Site.Data.header }}
+{{ $about := .Site.Data.about }}
+{{ $services := (where .Data.Pages ".Section" "==" "services") }}
+{{ $members := .Site.Data.members }}
+{{ $recruitment := .Site.Data.recruitment }}
+{{ $portfolios := (where .Data.Pages ".Section" "==" "portfolio") }}
+{{ $blogs := (where .Data.Pages ".Section" "==" "blog") }}
+{{ $contact := .Site.Data.contact }}
+
+{{ partial "head.html" . }}
+
+<div id="navbar-main">
+	<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
+			</button>
+			<a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="#home" class="smoothScroll">Home</a></li>
+				{{ if $about }}
+					<li> <a href="#about" class="smoothScroll"> {{ $.Site.Data.about.nav | default "About" }}</a></li>
+				{{ end }}
+				{{ if $services }}
+					<li> <a href="#services" class="smoothScroll"> {{ $.Site.Data.services.nav | default "Services" }}</a></li>
+				{{ end }}
+				{{ if $members }}
+					<li> <a href="#team" class="smoothScroll"> {{ $.Site.Data.team.nav | default "Team" }}</a></li>
+				{{ end }}
+				{{ if $portfolios }}
+					<li> <a href="#portfolio" class="smoothScroll"> {{ $.Site.Data.portfolio.nav | default "Portfolio" }}</a></li>
+				{{ end }}
+				{{ if $blogs }}
+					<li> <a href="#blog" class="smoothScroll"> {{ $.Site.Data.blog.nav | default "Blog" }}</a></li>
+				{{ end }}
+				{{ if $contact }}
+					<li> <a href="#contact" class="smoothScroll"> {{ $.Site.Data.contact.nav | default "Contact" }}</a></li>
+				{{ end }}
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+</div>
+</div>
+
+{{ with $header }}
+	{{ partial "header.html" . }}
+{{ end }}
+
+{{ partial "graywrap.html" . }}
+
+{{ with $about }}
+	{{ partial "about.html" . }}
+{{ end }}
+
+{{ with index .Site.Data.dividers "1" }}
+	{{ partial "divider.html" . }}
+{{ end }}
+
+{{ with $services }}
+<!-- ==== SERVICES ==== -->
+<div class="container" id="services" name="services">
+	<br>
+	<br>
+	{{ range . }}
+		{{ partial "service" .}}
+	{{ end }}
+</div><!-- container -->
+{{ end }}
+
+
+{{ with index .Site.Data.dividers "2" }}
+	{{ partial "divider.html" . }}
+{{ end }}
+
+{{ with $members }}
+	{{ partial "team.html" . }}
+{{ end }}
+
+{{ with $recruitment }}
+	{{ partial "recruitment.html" . }}
+{{ end }}
+
+{{ with index .Site.Data.dividers "3" }}
+	{{ partial "divider.html" . }}
+{{ end }}
+
+
+		{{ with $portfolios }}
+			{{ partial "portfolio.html" (dict "items" . "heading" $.Site.Data.portfolio.heading) }}
+		{{ end }}
+
+		{{ with index .Site.Data.dividers "4" }}
+			{{ partial "divider.html" . }}
+		{{ end }}
+
+		{{ with $blogs }}
+			{{ partial "blog.html" (dict "items" . "heading" $.Site.Data.blog.heading) }}
+		{{ end }}
+
+		<!-- ==== SECTION DIVIDER6 ==== -->
+		<section class="section-divider textdivider divider6">
+			<div class="container">
+				<h1>CRAFTED IN NEW YORK, USA.</h1>
+				<hr>
+				<p>Some Address 987,</p>
+				<p>+34 9884 4893</p>
+				<p><a class="icon icon-twitter" href="#"></a> | <a class="icon icon-facebook" href="#"></a></p>
+			</div><!-- container -->
+		</section><!-- section -->
+
+	{{ with $contact }}
+		{{ partial "contact.html" . }}
+	{{ end }}
+
+		<div id="footerwrap">
+			<div class="container">
+				<h4>Created by <a href="http://blacktie.co">BlackTie.co</a> - Copyright 2014</h4>
+			</div>
+		</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/retina.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/smoothscroll.js"></script>
+	<script type="text/javascript" src="js/jquery-func.js"></script>
+  </body>
+</html>
