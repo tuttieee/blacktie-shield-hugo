@@ -1,0 +1,7 @@
+baseurl = "http://replace-this-with-your-hugo-site.com/"
+languageCode = "en-us"
+title = " SHIELD - Free Bootstrap 3 Theme"
+
+[params]
+    description = "SHIELD - Free Bootstrap 3 Theme"
+    author = "Carlos Alvarez - Alvarez.is - blacktie.co"
