@@ -118,7 +118,10 @@
 
 		<div id="footerwrap">
 			<div class="container">
-				<h4>Created by <a href="http://blacktie.co">BlackTie.co</a> - Copyright 2014</h4>
+				<h4>
+					{{ with .Site.Copyright | safeHTML }}{{ . }}{{ else }}&copy; {{ with .Site.LastChange.Year }}{{ . }}{{ end }} {{ with $.Site.Params.Author }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}
+				</h4>
+				<h4>Designed by <a href="http://blacktie.co">BlackTie.co</a></h4>
 			</div>
 		</div>
     <!-- Bootstrap core JavaScript
