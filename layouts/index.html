@@ -14,10 +14,17 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
+			{{ with .Site.Data.nav.icon_img }}
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
+					<img src="img/{{ . }}" alt="nav" style="height: 30px; background-color: rgba(0,0,0,0);">
 			</button>
-			<a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a>
+			<a class="navbar-brand hidden-xs hidden-sm" href="#home"><img src="img/{{ . }}" alt="nav" style="height: 20px; background-color: rgba(0,0,0,0);"></a>
+			{{ else }}
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon icon-{{ with .Site.Data.nav.icon }}{{ . }}{{ else }}shield{{ end }}" style="font-size:30px; color:#3498db;"></span>
+			</button>
+			<a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-{{ with .Site.Data.nav.icon }}{{ . }}{{ else }}shield{{ end }}" style="font-size:18px; color:#3498db;"></span></a>
+			{{ end }}
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">

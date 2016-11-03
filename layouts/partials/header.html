@@ -1,10 +1,16 @@
 		<!-- ==== HEADERWRAP ==== -->
-	    <div id="headerwrap" id="home" name="home">
+		<div id="headerwrap" id="home" name="home">
 			<header class="clearfix">
-	  		 		<h1><span class="icon icon-{{ with .icon }}{{ . }}{{ else }}shield{{ end }}"></span></h1>
-						{{ with .heading}}<p>{{ . }}</p>{{ end }}
-						{{ range .headings }}
-						<p>{{ . }}</p>
-						{{ end }}
-	  		</header>
-	    </div><!-- /headerwrap -->
+				<h1>
+					{{ with .icon_img }}
+						<img src="img/{{ . }}" alt="Logo">
+					{{ else }}
+						<span class="icon icon-{{ with .icon }}{{ . }}{{ else }}shield{{ end }}"></span>
+					{{ end }}
+				</h1>
+				{{ with .heading}}<p>{{ . }}</p>{{ end }}
+				{{ range .headings }}
+				<p>{{ . }}</p>
+				{{ end }}
+			</header>
+		</div><!-- /headerwrap -->
