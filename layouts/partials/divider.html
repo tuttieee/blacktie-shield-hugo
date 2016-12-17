@@ -11,5 +11,28 @@
         {{ with .text }}
 				<p>{{ . }}</p>
         {{ end }}
+        {{ with .texts }}
+          {{ range . }}
+            <p>{{ . }}</p>
+          {{ end }}
+        {{ end }}
+
+        {{ with .socials }}
+        <p>
+          {{ $len := (len .) }}
+          {{ range $index, $element := . }}
+            {{ if eq .type "email" }}
+              <a class="icon icon-envelop" href="mailto:{{ .value }}"></a>
+            {{ else if eq .type "twitter" }}
+              <a class="icon icon-twitter" href="https://twitter.com/{{ .value }}"></a>
+            {{ else if eq .type "facebook" }}
+              <a class="icon icon-facebook" href="https://www.facebook.com/{{ .value }}"></a>
+            {{ end }}
+            {{ if lt $index (sub $len 1) }}
+            |
+            {{ end }}
+          {{ end }}
+        </p>
+        {{ end }}
 			</div><!-- container -->
 		</section><!-- section -->

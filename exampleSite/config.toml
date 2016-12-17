@@ -1,6 +1,8 @@
 baseurl = "http://replace-this-with-your-hugo-site.com/"
 languageCode = "en-us"
 title = " SHIELD - Free Bootstrap 3 Theme"
+theme = "blacktie-shield"
+themesdir = "../../../themes"
 
 [params]
     description = "SHIELD - Free Bootstrap 3 Theme"

@@ -1,0 +1,13 @@
+title = "CRAFTED IN NEW YORK, USA."
+texts = [
+    "Some Address 987,",
+    "+34 9884 4893",
+]
+img = "bg/divider6.jpg"
+
+[[socials]]
+	type = "twitter"
+    value= "blacktie_co"
+[[socials]]
+	type = "facebook"
+    value = "BlackTie Agency"

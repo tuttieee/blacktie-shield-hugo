@@ -6,11 +6,18 @@
 				<h1 class="centered">{{ .title }}</h1>
 				<hr>
 
-        {{ $texts_length := len .texts }}
-        {{ range .texts }}
-				<div class="col-lg-{{ div 12 $texts_length }}">
-					<p>{{ . }}</p>
-				</div><!-- col-lg-6 -->
+        {{ with .texts }}
+          {{ $texts_length := len . }}
+          {{ range . }}
+          <div class="col-lg-{{ div 12 $texts_length }}">
+  					<p>{{ . }}</p>
+  				</div><!-- col-lg-6 -->
+          {{ end }}
+        {{ end }}
+        {{ with .text }}
+  				<div class="col-lg-6 col-lg-offset-3">
+            <p>{{ . }}</p>
+          </div>
         {{ end }}
 			</div><!-- row -->
 		</div><!-- container -->
