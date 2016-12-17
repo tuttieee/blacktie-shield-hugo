@@ -7,6 +7,8 @@
 {{ $blogs := (where .Data.Pages ".Section" "==" "blog") }}
 {{ $contact := .Site.Data.contact }}
 
+{{ $dividers := .Site.Data.dividers }}
+
 {{ partial "head.html" . }}
 
 <div id="navbar-main">
@@ -63,8 +65,8 @@
 	{{ partial "about.html" . }}
 {{ end }}
 
-{{ with index .Site.Data.dividers "1" }}
-	{{ partial "divider.html" . }}
+{{ if isset $dividers "1" }}
+	{{ partial "divider.html" (index $dividers "1") }}
 {{ end }}
 
 {{ with $services }}
@@ -79,8 +81,8 @@
 {{ end }}
 
 
-{{ with index .Site.Data.dividers "2" }}
-	{{ partial "divider.html" . }}
+{{ if isset $dividers "2" }}
+	{{ partial "divider.html" (index $dividers "2") }}
 {{ end }}
 
 {{ with $members }}
@@ -91,8 +93,8 @@
 	{{ partial "recruitment.html" . }}
 {{ end }}
 
-{{ with index .Site.Data.dividers "3" }}
-	{{ partial "divider.html" . }}
+{{ if isset $dividers "3" }}
+	{{ partial "divider.html" (index $dividers "3") }}
 {{ end }}
 
 
@@ -100,18 +102,19 @@
 			{{ partial "portfolio.html" (dict "items" . "heading" $.Site.Data.portfolio.heading) }}
 		{{ end }}
 
-		{{ with index .Site.Data.dividers "4" }}
-			{{ partial "divider.html" . }}
-		{{ end }}
+    {{ if isset $dividers "4" }}
+    	{{ partial "divider.html" (index $dividers "4") }}
+    {{ end }}
 
 		{{ with $blogs }}
 			{{ partial "blog.html" (dict "items" . "heading" $.Site.Data.blog.heading) }}
 		{{ end }}
 
 		<!-- ==== SECTION DIVIDER6 ==== -->
-		{{ with index .Site.Data.dividers "6" }}
-			{{ partial "divider.html" . }}
-		{{ end }}
+
+    {{ if isset $dividers "6" }}
+    	{{ partial "divider.html" (index $dividers "6") }}
+    {{ end }}
 
 	{{ with $contact }}
 		{{ partial "contact.html" . }}
