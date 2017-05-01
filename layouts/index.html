@@ -99,7 +99,7 @@
 
 
 		{{ with $portfolios }}
-			{{ partial "portfolio.html" (dict "items" . "heading" $.Site.Data.portfolio.heading) }}
+			{{ partial "portfolio.html" (dict "items" . "heading" $.Site.Data.portfolio.heading "text" $.Site.Data.portfolio.text) }}
 		{{ end }}
 
     {{ if isset $dividers "4" }}

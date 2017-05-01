@@ -5,8 +5,11 @@
   	<br>
   	<h1 class="centered">{{ .heading }}</h1>
   	<hr>
-  	<br>
-  	<br>
+	{{ with .text }}
+    <p class="centered">
+        {{ . }}
+    </p>
+    {{ end }}
   </div><!-- /row -->
   <div class="container">
   	<div class="row">
